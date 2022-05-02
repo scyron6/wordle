@@ -39,7 +39,7 @@ export const gameSlice = createSlice({
       }
     },
     handleEnter: (state) => {
-      if (state.done) return;
+      if (state.done || state.letter !== 5) return;
 
       if (checkWon(state)) {
         state.done = true;
