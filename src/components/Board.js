@@ -1,16 +1,21 @@
 import React from 'react';
 import Tiles from './Tiles.js';
 import { useSelector } from 'react-redux';
-import { selectStatus } from './gameSlice.js';
+import { selectStatus, selectAttempt } from './gameSlice.js';
 
-const Board = ({ tiles, attempt }) => {
+const Board = () => {
   const status = useSelector(selectStatus);
+  const attempt = useSelector(selectAttempt);
   if (status === 'idle') {
     return (
       <div className='flex-center flex-column gap-8 mb-12'>
-        {tiles.map((row, index) => {
-          return <Tiles key={index} row={row} submitted={attempt > index} />;
-        })}
+        {Array(5)
+          .fill(0)
+          .map((value, index) => {
+            return (
+              <Tiles key={index} row={index} submitted={attempt > index} />
+            );
+          })}
       </div>
     );
   } else {

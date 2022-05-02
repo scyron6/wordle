@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from './Button.js';
 
-const Row = ({ inputs, handleInput }) => {
+const Row = ({ inputs }) => {
   return (
     <div className='row flex-center'>
       {inputs.map((input) => {
-        return <Button key={input} input={input} handleInput={handleInput} />;
+        return <Button key={input} input={input} />;
       })}
     </div>
   );

@@ -3,6 +3,5 @@ export async function fetchWord() {
     'https://random-word-api.herokuapp.com/word?length=5'
   );
   let data = await response.json();
-  console.log(data[0]);
   return data[0].toUpperCase();
 }

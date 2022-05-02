@@ -1,13 +1,14 @@
 import React from 'react';
 import Tile from './Tile.js';
 import { useSelector } from 'react-redux';
-import { selectWord } from './gameSlice.js';
+import { selectWord, selectTiles } from './gameSlice.js';
 
 const Tiles = ({ row, submitted }) => {
   const word = useSelector(selectWord);
+  const tiles = useSelector(selectTiles);
   return (
     <div className='flex-center gap-4'>
-      {row.map((tile, index) => {
+      {tiles[row].map((tile, index) => {
         return (
           <Tile
             key={index}
